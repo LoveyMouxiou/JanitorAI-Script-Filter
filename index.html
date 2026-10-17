@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JanitorAI Script Filter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>JanitorAI Script Filter</h1>
+    <p>Choose a lorebook, mark entries to remove, then download the result.</p>
+
+    <input id="file" type="file" accept=".json,application/json">
+    <p id="summary"></p>
+
+    <p>
+        <input id="ids" placeholder="IDs or ranges: 1, 5, 10-20" disabled>
+        <button id="apply" disabled>Mark IDs</button>
+    </p>
+
+    <p>
+        <button id="all" disabled>Mark all</button>
+        <button id="none" disabled>Clear</button>
+        <button id="download" disabled>Download filtered JSON</button>
+    </p>
+
+    <table id="table" hidden>
+        <thead>
+            <tr>
+                <th>Remove</th>
+                <th>ID</th>
+                <th>Keys</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="app.js"></script>
+</body>
+</html>
