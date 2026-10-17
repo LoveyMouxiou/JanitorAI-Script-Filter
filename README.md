@@ -3,6 +3,7 @@ A small offline tool for removing entries from JanitorAI lorebook JSON files. Fi
 
 ## Use
 ### Way 1: Linked website
+https://loveymouxiou.github.io/JanitorAI-Script-Filter/
 
 ### Way 2: Local on ur pc
 1. Open `index.html`.
