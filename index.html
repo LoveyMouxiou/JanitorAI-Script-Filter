@@ -3,39 +3,63 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>JanitorAI Script Filter</title>
+    <meta name="color-scheme" content="light dark">
+    <title>Script Entry Cleaner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>JanitorAI Script Filter</h1>
-    <p>Choose a lorebook, mark entries to remove, then download the result.</p>
+    <main class="app">
+        <header class="hero">
+            <div class="eyebrow">LOCAL JSON TOOL</div>
+            <h1>Script Entry Cleaner</h1>
+            <p>Inspect a script or lorebook export, mark entries you don't want, and download a cleaned copy. Your file stays in your browser.</p>
+        </header>
 
-    <input id="file" type="file" accept=".json,application/json">
-    <p id="summary"></p>
+        <section class="panel import-panel" aria-labelledby="import-heading">
+            <div class="section-heading">
+                <span class="step">01</span>
+                <div><h2 id="import-heading">Load your JSON</h2><p>Choose an exported <code>.json</code> file.</p></div>
+            </div>
+            <label class="file-drop" for="file">
+                <span class="file-icon" aria-hidden="true">↥</span>
+                <span><strong>Choose a JSON file</strong><small>Supports entry arrays and common editor wrappers</small></span>
+                <input id="file" type="file" accept=".json,application/json,text/json">
+            </label>
+            <div id="error" class="error" role="alert" hidden></div>
+            <p id="summary" class="summary" aria-live="polite">Choose a JSON file to get started.</p>
+        </section>
 
-    <p>
-        <input id="ids" placeholder="IDs or ranges: 1, 5, 10-20" disabled>
-        <button id="apply" disabled>Mark IDs</button>
-    </p>
-
-    <p>
-        <button id="all" disabled>Mark all</button>
-        <button id="none" disabled>Clear</button>
-        <button id="download" disabled>Download filtered JSON</button>
-    </p>
-
-    <table id="table" hidden>
-        <thead>
-            <tr>
-                <th>Remove</th>
-                <th>ID</th>
-                <th>Keys</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
+        <section class="panel tools-panel">
+            <div class="section-heading">
+                <span class="step">02</span>
+                <div><h2>Choose entries to remove</h2><p>Marked rows are removed from the downloaded copy.</p></div>
+            </div>
+            <div class="toolbar">
+                <div class="id-tools">
+                    <label class="sr-only" for="ids">Entry IDs or ranges</label>
+                    <input id="ids" type="text" placeholder="IDs or ranges: 4, 10-20" disabled>
+                    <button id="apply" class="secondary" disabled>Mark IDs</button>
+                </div>
+                <div class="quick-tools">
+                    <button id="all" class="secondary" disabled>Mark all</button>
+                    <button id="none" class="secondary" disabled>Clear marks</button>
+                </div>
+            </div>
+            <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search IDs, keywords, descriptions, or content…" disabled></label>
+            <div class="table-wrap">
+                <table id="table" hidden>
+                    <thead><tr><th class="check-col">Remove</th><th>ID</th><th>Keywords</th><th>Description</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+                <div id="empty-state" class="empty-state" hidden>No entries match this search.</div>
+            </div>
+            <div class="footer-actions">
+                <span class="privacy-note"><span class="privacy-dot"></span> Processed locally — no upload</span>
+                <button id="download" class="primary" disabled>Download filtered JSON <span aria-hidden="true">↓</span></button>
+            </div>
+        </section>
+        <footer>Original file is never changed. Review the downloaded JSON before importing it back into your editor.</footer>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>

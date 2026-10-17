@@ -1,14 +1,17 @@
-# JanitorAI Script Filter
-A small offline tool for removing entries from JanitorAI lorebook JSON files. Files stay in your browser.
+# Script Entry Cleaner
+
+An offline browser tool for removing selected entries from JSON script/lorebook exports. Files are processed locally in the browser and are never uploaded.
 
 ## Use
-### Way 1: Linked website
-https://loveymouxiou.github.io/JanitorAI-Script-Filter/
+1. Open `index.html` in a modern browser.
+2. Choose the JSON export file.
+3. Mark entries to remove, or enter IDs/ranges such as `4, 10-20`.
+4. Download the filtered JSON and review it before importing it back into your editor.
 
-### Way 2: Local on ur pc
-1. Open `index.html`.
-2. Choose a `.json` lorebook.
-3. Tick entries to remove, or enter IDs/ranges like `1, 5, 10-20`.
-4. Download the filtered JSON and import it into JanitorAI.
+## Supported shapes
+- A top-level array of entries (including the sample entry format).
+- An object with an `entries`, `scripts`, `lorebook`, `data`, `items`, or `cards` array.
+- An object whose values are entry objects, including inside those common wrapper properties.
+- UTF-8 JSON, UTF-8 with BOM, and UTF-16 JSON with a BOM.
 
-Supports a JSON array or an object with an `entries` array. The original file is not changed.
+The source file is not modified. The export retains the original wrapper shape where recognized.
