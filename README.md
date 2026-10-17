@@ -3,6 +3,10 @@
 An offline browser tool for removing selected entries from JSON script/lorebook exports. Files are processed locally in the browser and are never uploaded.
 
 ## Use
+## Case 1 (Website)
+https://loveymouxiou.github.io/JanitorAI-Script-Filter/
+
+### Case 2 (Local)
 1. Open `index.html` in a modern browser.
 2. Choose the JSON export file.
 3. Mark entries to remove, or enter IDs/ranges such as `4, 10-20`.
